@@ -1,0 +1,14 @@
+.footer-container{
+    background-color: rgb(48, 48, 131);
+}
+.quick-link{
+    text-decoration: none;
+    color: white;
+}
+.social-icons{
+    margin: 0 auto;
+}
+.icon{
+    font-size: 40px;
+    margin-left: 15px;
+}
