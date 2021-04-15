@@ -5,10 +5,10 @@ import { Card } from 'react-bootstrap';
 
 
 const ServiceCard = (props) => {
-    const { title, description, img, price } = props.service;
+    const { title, description, image, price } = props.service;
     return (
         <Card style={{ width: '18rem' }} className='m-3'>
-            <Card.Img variant="top" src={img} />
+            <Card.Img variant="top" src={`data:image/png;base64,${props.service.image.img}`} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>

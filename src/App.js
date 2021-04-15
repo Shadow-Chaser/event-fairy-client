@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import Home from './components/Home/Home/Home';
 import Services from './components/Home/Services/Services';
+import Dashboard from './components/Dashboard/Dashboard/Dashboard';
+import AddService from './components/Dashboard/AddService/AddService';
 
 
 function App() {
@@ -19,6 +21,12 @@ function App() {
         </Route>
         <Route path="/services">
           <Services></Services>
+        </Route>
+        <Route path="/dashboard">
+          <Dashboard></Dashboard>
+        </Route>
+        <Route path="/addService">
+          <AddService></AddService>
         </Route>
       </Switch>
     </Router>
