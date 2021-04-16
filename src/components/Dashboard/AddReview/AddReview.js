@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
-const AddService = () => {
-    const [serviceData, setServiceData] = useState({})
+
+const AddReview = () => {
+    const [reviewData, setReviewData] = useState({})
     const [file, setFile] = useState(null);
 
     const handleFileChange = e => {
@@ -11,21 +12,21 @@ const AddService = () => {
     }
 
     const handleBlur = e => {
-        const newData = { ...serviceData };
+        const newData = { ...reviewData };
         newData[e.target.name] = e.target.value;
-        setServiceData(newData);
+        setReviewData(newData);
     }
-    // console.log(serviceData);
+    // console.log(reviewData);
 
     const handleSubmit = e => {
         const formData = new FormData();
-        // console.log(serviceData);
-        formData.append('description', serviceData.description);
-        formData.append('price', serviceData.price);
+        // console.log(reviewData);
+        formData.append('review', reviewData.review);
+        formData.append('address', reviewData.address);
         formData.append('file', file);
-        formData.append('title', serviceData.title)
+        formData.append('name', reviewData.name)
 
-        fetch('http://localhost:5000/addService', {
+        fetch('http://localhost:5000/addReview', {
             method: 'POST',
             body: formData
 
@@ -34,7 +35,7 @@ const AddService = () => {
             .then(data => {
                 console.log(data);
                 if (data) {
-                    alert("Service added successfully!")
+                    alert("Review added successfully!")
                 }
             })
             .catch(error => {
@@ -46,27 +47,25 @@ const AddService = () => {
         e.preventDefault()
     }
 
-
     return (
         <div className='d-flex justify-content-center'>
             <Form className='w-75 mt-5' onSubmit={handleSubmit}>
 
-                <Form.Group controlId="title">
-                    <Form.Label>Title</Form.Label>
-                    <Form.Control onBlur={handleBlur} type="text" name='title' placeholder="Enter title" />
+                <Form.Group controlId="name">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control onBlur={handleBlur} type="text" name='name' placeholder="Enter name" />
                 </Form.Group>
 
-
-
-                <Form.Group controlId="description">
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control onBlur={handleBlur} as="textarea" type="text" name='description' placeholder="Enter your message" />
+                <Form.Group controlId="address">
+                    <Form.Label>Address</Form.Label>
+                    <Form.Control onBlur={handleBlur} type="text" name='address' placeholder="Enter address" />
                 </Form.Group>
 
-                <Form.Group controlId="price">
-                    <Form.Label>Price</Form.Label>
-                    <Form.Control onBlur={handleBlur} type="number" name='price' placeholder="Enter price in dollar" />
+                <Form.Group controlId="review">
+                    <Form.Label>Review</Form.Label>
+                    <Form.Control onBlur={handleBlur} as="textarea" type="text" name='review' placeholder="Enter your message" />
                 </Form.Group>
+
 
                 <Form.Group controlId="file">
                     <Form.Label>Image</Form.Label>
@@ -82,4 +81,4 @@ const AddService = () => {
     );
 };
 
-export default AddService;
+export default AddReview;

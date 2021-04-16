@@ -8,7 +8,7 @@ const Services = () => {
             .then(res => res.json())
             .then(data => setServicesData(data))
     }, [])
-    console.log(servicesData);
+    // console.log(servicesData);
     return (
         <div className=''>
             <h2 className="text-center mt-5 mb-5">Services We Provide</h2>

@@ -1,28 +1,14 @@
-import React from 'react';
-import ashab from '../../../images/ashab.jpg';
+import React, { useEffect, useState } from 'react';
 import Review from '../Review/Review';
 
-const testimonialsData = [
-    {
-        name: 'Ashab Hussan',
-        address: 'Sylhet BD',
-        reviewText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ullam, similique maiores veniam pariatur tempore.',
-        img: ashab,
-    },
-    {
-        name: 'Ashab Hussan',
-        address: 'Sylhet BD',
-        reviewText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ullam, similique maiores veniam pariatur tempore.',
-        img: ashab,
-    }, {
-        name: 'Ashab Hussan',
-        address: 'Sylhet BD',
-        reviewText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ullam, similique maiores veniam pariatur tempore.',
-        img: ashab,
-    }
-]
 
 const Testimonials = () => {
+    const [testimonialsData, setTestimonialsData] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json())
+            .then(data => setTestimonialsData(data))
+    }, [])
     return (
         <div>
             <h2 className="text-center mt-5 mb-5">Testimonials</h2>
