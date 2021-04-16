@@ -12,15 +12,27 @@ import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 import AddService from './components/Dashboard/AddService/AddService';
 import AddReview from './components/Dashboard/AddReview/AddReview';
 import ManageServices from './components/Dashboard/ManageServices/ManageServices';
+import Checkout from './components/Checkout/Checkout/Checkout';
+import Login from './components/Login/Login/Login';
+import { createContext, useState } from 'react';
+import Navigation from './components/Home/Navigation/Navigation';
+export const UserContext = createContext();
 
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
+
   return (
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
     <Router>
+        <Navigation></Navigation>
       <Switch>
         <Route exact path="/">
           <Home></Home>
         </Route>
+          <Route path="/home">
+            <Home></Home>
+          </Route>
         <Route path="/services">
           <Services></Services>
         </Route>
@@ -36,8 +48,15 @@ function App() {
         <Route path="/manageServices">
           <ManageServices></ManageServices>
         </Route>
+          <Route path="/service/:serviceId">
+            <Checkout></Checkout>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
       </Switch>
     </Router>
+    </UserContext.Provider>
   );
 }
 

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../../App';
 
 const Navigation = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     return (
 
-        <Navbar bg='' expand='lg'>
+        <Navbar bg='info' expand='lg'>
             <Navbar.Brand className='text-white'> Event Fairy </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id='basic-navbar-nav'>
@@ -15,6 +17,9 @@ const Navigation = () => {
                     <Nav.Link><Link className='nav-link text-white' to='/dashboard'>Dashboard</Link></Nav.Link>
                     <Nav.Link><Link className='nav-link text-white' to='/deals'>Deals</Link></Nav.Link>
                     <Nav.Link><Link className='nav-link text-white' to='/login'>Login</Link></Nav.Link>
+                    <Nav.Link><Link className='nav-link' to='/' >
+                        <img src={loggedInUser.image} style={{ width: '30px' }} className='ml-3 rounded-circle' alt="" />
+                    </Link></Nav.Link>
 
                 </Nav>
             </Navbar.Collapse>
