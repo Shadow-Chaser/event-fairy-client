@@ -16,6 +16,7 @@ import Checkout from './components/Checkout/Checkout/Checkout';
 import Login from './components/Login/Login/Login';
 import { createContext, useState } from 'react';
 import Navigation from './components/Home/Navigation/Navigation';
+import ManageBookings from './components/Dashboard/ManageBookings/ManageBookings';
 export const UserContext = createContext();
 
 
@@ -36,6 +37,10 @@ function App() {
         <Route path="/services">
           <Services></Services>
         </Route>
+          <Route path="/manageBookings">
+            <ManageBookings></ManageBookings>
+          </Route>
+
         <Route path="/dashboard">
           <Dashboard></Dashboard>
         </Route>
