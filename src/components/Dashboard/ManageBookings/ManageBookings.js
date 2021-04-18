@@ -9,6 +9,7 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 const ManageBookings = () => {
     const [bookingsData, setBookingsData] = useState([]);
+    const [status, setStatus] = useState(null)
     const [isEdit, setIsEdit] = useState(true);
     const [isDropDown, setIsDropDown] = useState(false);
     const [update, setUpdate] = useState({
@@ -55,6 +56,16 @@ const ManageBookings = () => {
                 // console.log("data updated");
                 if (result) {
                     console.log(result);
+                    // setStatus(update.status);
+                    // const newUpdate = { ...update };
+                    // newUpdate.bookingId = "";
+                    // setUpdate(newUpdate);
+
+                    const updatedBooking = bookingsData.find(booking => booking._id === update.bookingId);
+                    updatedBooking.status = update.status;
+                    const temp = bookingsData.filter(booking => booking._id !== update.bookingId);
+                    const newBookingsData = [...temp, updatedBooking]
+                    setBookingsData(newBookingsData);
                 }
             })
     }
@@ -83,7 +94,7 @@ const ManageBookings = () => {
                                 <td>{booking.name}</td>
                                 <td>{booking.email}</td>
                                 <td>{booking.service}</td>
-                                <td>{booking.status}</td>
+                                <td>{status && update.bookingId === booking._id ? status : booking.status}</td>
                                 <td>
                                     {
                                         isEdit && <FontAwesomeIcon onClick={() => getId(booking._id)} icon={faEdit} style={{ color: "rgb(70, 221, 70)", fontSize: "25px" }}  ></FontAwesomeIcon>
