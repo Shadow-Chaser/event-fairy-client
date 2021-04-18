@@ -1,7 +1,8 @@
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Row, Table } from 'react-bootstrap';
+import Sidebar from '../Sidebar/Sidebar';
 
 const ManageServices = () => {
     const [servicesData, setServicesData] = useState([]);
@@ -32,7 +33,11 @@ const ManageServices = () => {
     }
 
     return (
-        <div>
+        <div className="container-fluid row">
+            <div className="col-md-2">
+                <Sidebar></Sidebar>
+            </div>
+            <div className='col-md-10'>
             <h2 className="text-center">Manage Services</h2>
 
             <Table striped bordered hover style={{ width: "80%", margin: '0 auto' }}>
@@ -59,6 +64,7 @@ const ManageServices = () => {
             </Table>
 
 
+            </div>
         </div>
     );
 };

@@ -6,6 +6,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import Sidebar from '../Sidebar/Sidebar';
 
 const ManageBookings = () => {
     const [bookingsData, setBookingsData] = useState([]);
@@ -73,7 +74,11 @@ const ManageBookings = () => {
     console.log(update);
 
     return (
-        <div>
+        <div className="container-fluid row">
+            <div className="col-md-2">
+                <Sidebar></Sidebar>
+            </div>
+            <div className="col-md-10">
             <h1>All Bookings</h1>
 
             <Table striped bordered hover style={{ width: "80%", margin: '0 auto' }}>
@@ -117,6 +122,7 @@ const ManageBookings = () => {
             </Table>
 
 
+            </div >
         </div>
     );
 };

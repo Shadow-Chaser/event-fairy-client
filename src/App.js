@@ -18,6 +18,7 @@ import { createContext, useState } from 'react';
 import Navigation from './components/Home/Navigation/Navigation';
 import ManageBookings from './components/Dashboard/ManageBookings/ManageBookings';
 import AddAdmin from './components/Dashboard/AddAdmin/AddAdmin';
+import UserBookings from './components/Dashboard/UserBookings/UserBookings';
 export const UserContext = createContext();
 
 
@@ -41,6 +42,9 @@ function App() {
         <Route path="/manageBookings">
             <ManageBookings></ManageBookings>
         </Route>
+          <Route path="/userBookings">
+            <UserBookings></UserBookings>
+          </Route>
           <Route path="/addAdmin">
             <AddAdmin></AddAdmin>
           </Route>

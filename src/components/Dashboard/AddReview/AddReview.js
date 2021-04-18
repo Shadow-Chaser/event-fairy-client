@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import Sidebar from '../Sidebar/Sidebar';
 
 
 const AddReview = () => {
@@ -48,7 +49,12 @@ const AddReview = () => {
     }
 
     return (
-        <div className='d-flex justify-content-center'>
+        <div className="container-fluid row">
+            <div className="col-md-2">
+                <Sidebar></Sidebar>
+            </div>
+            <div className="col-md-10">
+            <div className='d-flex justify-content-center'>
             <Form className='w-75 mt-5' onSubmit={handleSubmit}>
 
                 <Form.Group controlId="name">
@@ -77,6 +83,8 @@ const AddReview = () => {
                 </div>
 
             </Form>
+        </div>
+            </div>
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, FormControl, InputGroup } from 'react-bootstrap';
+import Sidebar from '../Sidebar/Sidebar';
 
 
 const AddAdmin = () => {
@@ -49,7 +50,12 @@ const AddAdmin = () => {
 
 
     return (
-        <div>
+        <div className="container-fluid row">
+            <div className="col-md-2">
+                <Sidebar></Sidebar>
+            </div>
+            <div className="col-md-10">
+            <div>
             <Form onSubmit={handleSubmit} inline>
                 <InputGroup className="mb-2 mr-sm-2">
                     <InputGroup.Prepend>
@@ -63,6 +69,8 @@ const AddAdmin = () => {
             {
                 <p style={{ color: 'red', display: isEmailValid ? 'none' : 'block' }}>Email Address is not a valid Email Address</p>
             }
+        </div>
+            </div>
         </div>
     );
 };

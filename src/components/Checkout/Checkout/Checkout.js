@@ -56,8 +56,8 @@ const Checkout = () => {
                 <Button variant="info" onClick={() => handleSubmit()}  >Get Booking</Button>
             </div>
             <div style={{ display: bookingData ? 'block' : 'none' }} className="col">
-                {/* <ProcessPayment></ProcessPayment> */}
-                <h1>Payment gateway will be here</h1>
+                <ProcessPayment></ProcessPayment>
+                {/* <h1>Payment gateway will be here</h1> */}
                 <Button variant="info" onClick={() => handlePayment()}  >Pay</Button>
             </div>
         </div>
