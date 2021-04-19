@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import './ProcessPayment.css'
 import {
     useStripe,
     useElements,
@@ -6,6 +7,7 @@ import {
     CardCvcElement,
     CardExpiryElement
 } from "@stripe/react-stripe-js";
+import { Button } from "react-bootstrap";
 
 
 
@@ -33,13 +35,13 @@ const useOptions = () => {
     return options;
 };
 
-const PaymentSplitCard = () => {
+const PaymentSplitCard = ({ handlePayment }) => {
     const stripe = useStripe();
     const elements = useElements();
     const options = useOptions();
 
     const [paymentError, setPaymentError] = useState(null);
-    const [paymentSuccess, setPaymentSuccess] = useState(null);
+    const [paymentId, setPaymentId] = useState(null);
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -54,81 +56,91 @@ const PaymentSplitCard = () => {
             type: "card",
             card: elements.getElement(CardNumberElement)
         });
-
-        console.log("[error,PaymentMethod]", payload);
-        // console.log([error.messege]);
+        // console.log("[error,PaymentMethod]", payload);
+        setPaymentError()
+        handlePayment(payload.paymentMethod.id)
+        setPaymentId(payload.paymentMethod.id);
+        // console.log(payload.paymentMethod.id);
+        console.log(payload);
 
     };
 
+    // console.log(paymentId);
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <label>
+            <form className='form-container' onSubmit={handleSubmit}>
+                <label className='payment-form-label'>
                     Card number
-        <CardNumberElement
+        <CardNumberElement className='payment-form-input'
                         options={options}
                         onReady={() => {
-                            console.log("CardNumberElement [ready]");
+                            // console.log("CardNumberElement [ready]");
                         }}
                         onChange={event => {
-                            console.log("CardNumberElement [change]", event);
+                            // console.log("CardNumberElement [change]", event);
+                            setPaymentError(event.error.message)
+                            // console.log(event.error.message);
+
                         }}
                         onBlur={() => {
-                            console.log("CardNumberElement [blur]");
+                            // console.log("CardNumberElement [blur]");
                         }}
                         onFocus={() => {
-                            console.log("CardNumberElement [focus]");
+                            // console.log("CardNumberElement [focus]");
                         }}
                     />
                 </label>
                 <br />
-                <label>
+                <label className='payment-form-label'>
                     Expiration date
-        <CardExpiryElement
+        <CardExpiryElement className='payment-form-input'
                         options={options}
                         onReady={() => {
-                            console.log("CardNumberElement [ready]");
+                            // console.log("CardNumberElement [ready]");
                         }}
                         onChange={event => {
-                            console.log("CardNumberElement [change]", event);
+                            // console.log("CardNumberElement [change]", event);
+                            setPaymentError(event.error.message)
+
                         }}
-                        onBlur={() => {
-                            console.log("CardNumberElement [blur]");
+                        onBlur={(event) => {
+                            // console.log("CardNumberElement [blur]");
+                            // setPaymentError(event.error.message)
                         }}
                         onFocus={() => {
-                            console.log("CardNumberElement [focus]");
+                            // console.log("CardNumberElement [focus]");
                         }}
                     />
-                </label>
+                </label >
                 <br />
-                <label>
+                <label className='payment-form-label'>
                     CVC
-        <CardCvcElement
+        <CardCvcElement className='payment-form-input'
                         options={options}
                         onReady={() => {
                             console.log("CardNumberElement [ready]");
                         }}
                         onChange={event => {
-                            console.log("CardNumberElement [change]", event);
+                            // console.log("CardNumberElement [change]", event);
+                            setPaymentError(event.error.message)
+
                         }}
                         onBlur={() => {
-                            console.log("CardNumberElement [blur]");
+                            // console.log("CardNumberElement [blur]");
                         }}
                         onFocus={() => {
-                            console.log("CardNumberElement [focus]");
+                            // console.log("CardNumberElement [focus]");
                         }}
                     />
                 </label>
                 <br />
-                <button type="submit" disabled={!stripe}>
-                    Pay
-      </button>
+                <Button className='payment-form-btn' variant='info' type="submit" disabled={!stripe}>Pay</Button>
             </form>
             {
                 paymentError && <p style={{ color: 'red' }}>{paymentError}</p>
             }
             {
-                paymentSuccess && <p style={{ color: 'green' }}>Your payment was successful.</p>
+                paymentId && <p style={{ color: 'green' }}>Your payment was successful.</p>
             }
         </div>
     );

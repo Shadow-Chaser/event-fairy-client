@@ -25,9 +25,9 @@ const Sidebar = () => {
 
 
     return (
-        <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{ height: "100vh" }}>
+        <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{ height: "100vh", width: '100vw' }}>
             <ul className="list-unstyled">
-                <img src={loggedInUser.image} style={{ width: '60px' }} className='rounded-circle m-3' alt="" srcset="" />
+                <img src={loggedInUser.image} style={{ width: '60px', height: '60px' }} className='rounded-circle m-3' alt="" srcset="" />
                 <li>
                     <Link to="/home" className="text-white">
                         <FontAwesomeIcon icon={faHome} /> <span>Home</span>

@@ -15,9 +15,9 @@ const Navigation = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id='basic-navbar-nav'>
                 <Nav className='ml-auto'>
-                    <Nav.Link><Link className='nav-link link text-white' to='/home'> <FontAwesomeIcon icon={faHome} /> Home</Link></Nav.Link>
-                    <Nav.Link><Link className='nav-link link text-white' to='/dashboard'> <FontAwesomeIcon icon={faChalkboardTeacher} /> Dashboard</Link></Nav.Link>
-                    <Nav.Link style={{ display: loggedInUser.email ? 'none' : 'block' }}><Link className='nav-link text-white ' to='/login'> <FontAwesomeIcon icon={faSignInAlt} /> Login</Link></Nav.Link>
+                    <Nav.Link><Link className='nav-link link' to='/home'> <FontAwesomeIcon icon={faHome} /> Home</Link></Nav.Link>
+                    <Nav.Link><Link className='nav-link link' to='/dashboard'> <FontAwesomeIcon icon={faChalkboardTeacher} /> Dashboard</Link></Nav.Link>
+                    <Nav.Link style={{ display: loggedInUser.email ? 'none' : 'block' }}><Link className='nav-link' to='/login'> <FontAwesomeIcon icon={faSignInAlt} /> Login</Link></Nav.Link>
                     {/* <Nav.Link style={{ display: loggedInUser.email ? 'block' : 'none' }}><Link className='nav-link' to='/' >
                         <img src={loggedInUser.image} style={{ width: '40px' }} className='ml-3 rounded-circle' alt="" />
                     </Link></Nav.Link> */}

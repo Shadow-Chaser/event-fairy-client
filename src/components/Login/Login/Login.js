@@ -7,9 +7,12 @@ import googleLogo from '../../../images/googleLogo.png'
 import './Login.css'
 import { UserContext } from '../../../App';
 import Navigation from '../../Home/Navigation/Navigation';
+import { useHistory, useLocation } from 'react-router';
 
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
+
 
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -43,7 +46,10 @@ const Login = () => {
                 var credential = error.credential;
                 // ...
             });
-    }
+        }
+    
+
+
 
     return (
         <div>
