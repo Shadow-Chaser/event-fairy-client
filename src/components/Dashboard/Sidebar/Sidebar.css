@@ -1,39 +1,16 @@
+.sidebar{
+    background-image: linear-gradient(40deg, #19d3ae,#0fcfec);
+    position: fixed;
+    left:0px
+}
 .sidebar li{
-    margin-bottom: 1em;
-    padding-left: 40px; 
-    font-weight: bold;
+    margin-bottom: 2em;
 }
- 
-.sideBarlink::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #3E8FFB;
-    transition: width .3s;
+.sidebar li:hover span{
+    display: inline-block;
+    transform: translate(5px);
 }
- 
-.sideBarlink:hover::after {
-    width: 100%;
- 
+.sidebar svg{
+    margin-right: 5px;
+
 }
- 
- .sideBarlink:hover{
-    text-decoration: none;
-} 
- 
- /* .sideBarlink:hover{
-    color: #3E8FFB;
-    border-bottom: 1px solid #3E8FFB;
-    text-decoration: none;
-    transition: .3s;
-}  */
- 
-.sideBarlink{
-    color: black;
-}
- 
-.logoutBtn:hover {
-    color: red;
-  }
- 

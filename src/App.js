@@ -19,6 +19,7 @@ import Navigation from './components/Home/Navigation/Navigation';
 import ManageBookings from './components/Dashboard/ManageBookings/ManageBookings';
 import AddAdmin from './components/Dashboard/AddAdmin/AddAdmin';
 import UserBookings from './components/Dashboard/UserBookings/UserBookings';
+import Bookings from './components/Dashboard/Bookings/Bookings';
 export const UserContext = createContext();
 
 
@@ -28,7 +29,7 @@ function App() {
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
     <Router>
-        <Navigation></Navigation>
+        {/* <Navigation></Navigation> */}
       <Switch>
         <Route exact path="/">
           <Home></Home>
@@ -50,7 +51,7 @@ function App() {
           </Route>
 
         <Route path="/dashboard">
-          <Dashboard></Dashboard>
+            <Dashboard></Dashboard>
         </Route>
         <Route path="/addService">
           <AddService></AddService>

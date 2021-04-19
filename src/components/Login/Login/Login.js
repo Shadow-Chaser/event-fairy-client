@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap';
 import googleLogo from '../../../images/googleLogo.png'
 import './Login.css'
 import { UserContext } from '../../../App';
+import Navigation from '../../Home/Navigation/Navigation';
 
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -45,10 +46,13 @@ const Login = () => {
     }
 
     return (
-        <div className='d-flex justify-content-center '>
-            <div className="login-container ">
-                <h1 className=" text-center">Login with</h1>
-                <Button variant='light' onClick={handleGoogleSignIn} className="login-btn d-flex justify-content-start"> <img src={googleLogo} alt="" className="mr-5" /> Continue with Google</Button>
+        <div>
+            <Navigation></Navigation>
+            <div className='d-flex justify-content-center '>
+                <div className="login-container ">
+                    <h1 className=" text-center">Login with</h1>
+                    <Button variant='light' onClick={handleGoogleSignIn} className="login-btn d-flex justify-content-start"> <img src={googleLogo} alt="" className="mr-5" /> Continue with Google</Button>
+                </div>
             </div>
         </div>
     );

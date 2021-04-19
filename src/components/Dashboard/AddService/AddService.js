@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import Sidebar from '../Sidebar/Sidebar';
 
 const AddService = () => {
     const [serviceData, setServiceData] = useState({})
@@ -48,9 +49,15 @@ const AddService = () => {
 
 
     return (
-        <div className='d-flex justify-content-center'>
-            <Form className='w-75 mt-5' onSubmit={handleSubmit}>
+        <div className="container-fluid row">
+            <div className="col-md-2">
+                <Sidebar></Sidebar>
+            </div>
 
+            <div className="col-md-10">
+            <div className='d-flex justify-content-center'>
+            <Form className='w-75 mt-5' onSubmit={handleSubmit}>
+                        <h1 className="mb-4">Add a new Service</h1>
                 <Form.Group controlId="title">
                     <Form.Label>Title</Form.Label>
                     <Form.Control onBlur={handleBlur} type="text" name='title' placeholder="Enter title" />
@@ -78,6 +85,8 @@ const AddService = () => {
                 </div>
 
             </Form>
+        </div>
+            </div>
         </div>
     );
 };
