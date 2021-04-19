@@ -7,7 +7,7 @@ import ProcessPayment from '../ProcessPayment/ProcessPayment';
 const Checkout = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [bookingData, setBookingData] = useState(null);
-    console.log(bookingData);
+    // console.log(bookingData);
 
     const { serviceId } = useParams();
     const [service, setService] = useState();
@@ -41,6 +41,22 @@ const Checkout = () => {
         }
         setBookingData(newBookingData);
 
+        // fetch('http://localhost:5000/addBooking', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(bookingData)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data) {
+        //             alert('your booking placed successfully');
+        //         }
+        //     })
+    }
+    const handleBooking = () => {
+        console.log(bookingData);
         fetch('http://localhost:5000/addBooking', {
             method: 'POST',
             headers: {
@@ -72,6 +88,7 @@ const Checkout = () => {
                 </div>
                 }
             </div>
+            <Button onClick={handleBooking}> Book Now </Button>
         </div>
     );
 };
