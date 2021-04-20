@@ -7,11 +7,13 @@ import ProcessPayment from '../ProcessPayment/ProcessPayment';
 const Checkout = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [bookingData, setBookingData] = useState(null);
+    const [isBookingConfirm, setIsBookingConfirm] = useState(false)
     // console.log(bookingData);
 
     const { serviceId } = useParams();
     const [service, setService] = useState();
     const { title, price } = service || {};
+
 
     useEffect(() => {
         fetch(`http://localhost:5000/service/${serviceId}`)
@@ -32,7 +34,7 @@ const Checkout = () => {
         // setBookingData(loggedInUser);
     }
     // console.log(service);
-
+    
     const handlePayment = (paymentId) => {
         console.log(paymentId);
         const newBookingData = {
@@ -40,6 +42,7 @@ const Checkout = () => {
             stripePaymentId: paymentId
         }
         setBookingData(newBookingData);
+        setIsBookingConfirm(true)
 
         // fetch('http://localhost:5000/addBooking', {
         //     method: 'POST',
@@ -88,7 +91,9 @@ const Checkout = () => {
                 </div>
                 }
             </div>
-            <Button onClick={handleBooking}> Book Now </Button>
+            {
+                bookingData && <Button onClick={handleBooking} disabled={isBookingConfirm === false}> Confirm Booking </Button>
+            }
         </div>
     );
 };
