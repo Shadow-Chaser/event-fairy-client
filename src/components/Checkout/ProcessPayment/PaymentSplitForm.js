@@ -134,9 +134,7 @@ const PaymentSplitCard = ({ handlePayment, price }) => {
                     />
                 </label>
                 <br />
-                <Button className='payment-form-btn' variant='info' type="submit" disabled={!stripe}>Pay</Button>
-                <p>Your Service Charge will be ${price}</p>
-            </form>
+                <Button className='payment-form-btn' variant='info' type="submit" disabled={!stripe}>Pay</Button>            </form>
             {
                 paymentError && <p style={{ color: 'red' }}>{paymentError}</p>
             }
