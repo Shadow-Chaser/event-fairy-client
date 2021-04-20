@@ -71,7 +71,7 @@ const Checkout = () => {
                         <h1>Service Details</h1>
                     <h3>Service: {title}</h3>
                         <h5>Details: {description}</h5>
-                        <h4>Service Charge: {price}</h4>
+                        <h4>Service Charge: ${price}</h4>
                     <h3>Name: {loggedInUser.name}</h3>
                     <h3>Email: {loggedInUser.email}</h3>
                     <Button variant="info" onClick={() => handleSubmit()}  >Get Booking</Button>
