@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import { UserContext } from '../../../App';
 import ProcessPayment from '../ProcessPayment/ProcessPayment';
 import Navigation from '../../Home/Navigation/Navigation';
+import './Checkout.css'
 
 const Checkout = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -13,7 +14,7 @@ const Checkout = () => {
 
     const { serviceId } = useParams();
     const [service, setService] = useState();
-    const { title, price } = service || {};
+    const { title, price, description } = service || {};
 
 
     useEffect(() => {
@@ -32,9 +33,7 @@ const Checkout = () => {
             bookingTime: new Date().toTimeString()
         }
         setBookingData(newBookingData);
-        // setBookingData(loggedInUser);
     }
-    // console.log(service);
     
     const handlePayment = (paymentId) => {
         console.log(paymentId);
@@ -44,20 +43,6 @@ const Checkout = () => {
         }
         setBookingData(newBookingData);
         setIsBookingConfirm(true)
-
-        // fetch('https://aqueous-lake-79514.herokuapp.com/addBooking', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(bookingData)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data) {
-        //             alert('your booking placed successfully');
-        //         }
-        //     })
     }
     const handleBooking = () => {
         console.log(bookingData);
@@ -75,16 +60,18 @@ const Checkout = () => {
                 }
             })
     }
-    // style={{ display: bookingData ? 'none' : 'block' }}
-    // style={{ display: bookingData ? 'block' : 'none' }}
+
     return (
         <>
             <Navigation></Navigation>
         <div className="d-flex justify-content-center">
 
             <div >
-                {!bookingData && <div>
+                    {!bookingData && <div className='service-details'>
+                        <h1>Service Details</h1>
                     <h3>Service: {title}</h3>
+                        <h5>Details: {description}</h5>
+                        <h4>Service Charge: {price}</h4>
                     <h3>Name: {loggedInUser.name}</h3>
                     <h3>Email: {loggedInUser.email}</h3>
                     <Button variant="info" onClick={() => handleSubmit()}  >Get Booking</Button>
@@ -93,12 +80,13 @@ const Checkout = () => {
                 {bookingData && <div>
                         <ProcessPayment handlePayment={handlePayment} price={price} ></ProcessPayment>
                 </div>
-                }
-            </div>
-            {
+                    }
+                 {
                 bookingData && <Button onClick={handleBooking} disabled={isBookingConfirm === false}> Confirm Booking </Button>
             }
-        </div>
+            </div>
+
+            </div>
         </>
     );
 };

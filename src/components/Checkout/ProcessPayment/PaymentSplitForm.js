@@ -125,7 +125,7 @@ const PaymentSplitCard = ({ handlePayment, price }) => {
                             setPaymentError(event.error.message)
 
                         }}
-                        onBlur={() => {
+                    onBlur={() => {
                             // console.log("CardNumberElement [blur]");
                         }}
                         onFocus={() => {

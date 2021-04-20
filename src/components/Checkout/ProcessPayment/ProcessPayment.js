@@ -3,7 +3,6 @@ import { Elements } from '@stripe/react-stripe-js';
 import { CardElement } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import PaymentSplitCard from './PaymentSplitForm';
-// import PaymentSplitForm from './ProcessPayment.css'
 
 const stripePromise = loadStripe('pk_test_51IhBXpFUbUyb7QjKZ5VdrQboOvyINjKAblIMIbIzpNKcWjDztaOpuYGHUiawzQpebuNlEtDVzKF1BOCw9pecMIzi00vTGboIyl');
 
