@@ -35,32 +35,16 @@ const Events = () => {
             <div className="d-flex justify-content-center">
                 <Carousel style={{ width: "80%" }}>
 
-                    <Carousel.Item>
-                        <img className="d-block w-100 event-image" src={eventsData[0].img} alt="First slide" />
-                        <Carousel.Caption>
-                            <h3>{eventsData[0].title}</h3>
-                            <p>{eventsData[0].description}</p>
-                            <p>{eventsData[0].date}</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-
-                    <Carousel.Item>
-                        <img className="d-block w-100  event-image" src={eventsData[1].img} alt="First slide" />
-                        <Carousel.Caption>
-                            <h3>{eventsData[1].title}</h3>
-                            <p>{eventsData[1].description}</p>
-                            <p>{eventsData[1].date}</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-
-                    <Carousel.Item>
-                        <img className="d-block w-100  event-image" src={eventsData[2].img} alt="First slide" />
-                        <Carousel.Caption>
-                            <h3>{eventsData[2].title}</h3>
-                            <p>{eventsData[2].description}</p>
-                            <p>{eventsData[2].date}</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
+                    {
+                        eventsData.map(event => <Carousel.Item>
+                            <img className="d-block w-100 event-image" src={event.img} alt="First slide" />
+                            <Carousel.Caption>
+                                <h3>{event.title}</h3>
+                                <p>{event.description}</p>
+                                <p>{event.date}</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>)
+                    }
 
                 </Carousel>
             </div>
