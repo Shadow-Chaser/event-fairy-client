@@ -20,6 +20,7 @@ import ManageBookings from './components/Dashboard/ManageBookings/ManageBookings
 import AddAdmin from './components/Dashboard/AddAdmin/AddAdmin';
 import UserBookings from './components/Dashboard/UserBookings/UserBookings';
 import Bookings from './components/Dashboard/Bookings/Bookings';
+import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
 export const UserContext = createContext();
 
 
@@ -50,9 +51,9 @@ function App() {
             <AddAdmin></AddAdmin>
           </Route>
 
-        <Route path="/dashboard">
+          <PrivateRoute path="/dashboard">
             <Dashboard></Dashboard>
-        </Route>
+          </PrivateRoute>
         <Route path="/addService">
           <AddService></AddService>
         </Route>
@@ -62,9 +63,9 @@ function App() {
         <Route path="/manageServices">
           <ManageServices></ManageServices>
         </Route>
-          <Route path="/service/:serviceId">
+          <PrivateRoute path="/service/:serviceId">
             <Checkout></Checkout>
-          </Route>
+          </PrivateRoute>
           <Route path="/login">
             <Login></Login>
           </Route>

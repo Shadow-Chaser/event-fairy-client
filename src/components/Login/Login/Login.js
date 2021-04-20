@@ -12,7 +12,9 @@ import { useHistory, useLocation } from 'react-router';
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } }
 
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -35,6 +37,7 @@ const Login = () => {
                 const { email, displayName, photoURL } = result.user;
                 const signedInUser = { name: displayName, email: email, image: photoURL }
                 setLoggedInUser(signedInUser);
+                history.replace(from);
 
             }).catch((error) => {
                 // Handle Errors here.

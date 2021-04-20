@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import './ProcessPayment.css'
+import './PaymentSplitForm.css'
 import {
     useStripe,
     useElements,
