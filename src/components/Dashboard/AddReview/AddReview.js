@@ -27,7 +27,7 @@ const AddReview = () => {
         formData.append('file', file);
         formData.append('name', reviewData.name)
 
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://aqueous-lake-79514.herokuapp.com/addReview', {
             method: 'POST',
             body: formData
 
@@ -56,7 +56,7 @@ const AddReview = () => {
             <div className="col-md-10">
             <div className='d-flex justify-content-center'>
             <Form className='w-75 mt-5' onSubmit={handleSubmit}>
-
+                        <h1 className='mt-2 mb-3'>Add a Review to Inspire Us</h1>
                 <Form.Group controlId="name">
                     <Form.Label>Name</Form.Label>
                     <Form.Control onBlur={handleBlur} type="text" name='name' placeholder="Enter name" />

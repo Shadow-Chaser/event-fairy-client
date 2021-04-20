@@ -4,12 +4,13 @@ import { useEffect } from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../../../App';
 import Sidebar from '../Sidebar/Sidebar';
+import UserBookingCard from '../UserBookingCard/UserBookingCard';
 
 const UserBooking = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [userBookings, setUserBookings] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/userBookings?email=' + loggedInUser.email)
+        fetch('https://aqueous-lake-79514.herokuapp.com/userBookings?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => setUserBookings(data))
     }, []);
@@ -19,16 +20,13 @@ const UserBooking = () => {
                 <Sidebar></Sidebar>
             </div>
             <div className="col-md-10">
-                <ul>
+                <h4 className='mt-3 ml-3'>User Email: {loggedInUser.email}</h4>
+                <div className="ml-2 row">
                     {
-                        userBookings.map(booking => <div className='mt-2'>
-                            <h4>{booking.email}</h4>
-                            <p>{booking.status}</p>
-                            <p>{booking.bookingTime}</p>
-                            <p>{booking.bookingDate}</p>
-                        </div>)
+                        userBookings.map(booking => <UserBookingCard booking={booking}></UserBookingCard>)
                     }
-                </ul>
+                </div>
+
             </div>
         </div>
     );

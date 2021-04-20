@@ -20,7 +20,7 @@ const ManageBookings = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/bookings')
+        fetch('https://aqueous-lake-79514.herokuapp.com/bookings')
             .then(res => res.json())
             .then(data => {
                 setBookingsData(data);
@@ -47,7 +47,7 @@ const ManageBookings = () => {
     }
 
     const handleUpdate = () => {
-        fetch(`http://localhost:5000/updateBooking`, {
+        fetch(`https://aqueous-lake-79514.herokuapp.com/updateBooking`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(update)
@@ -79,7 +79,7 @@ const ManageBookings = () => {
                 <Sidebar></Sidebar>
             </div>
             <div className="col-md-10">
-            <h1>All Bookings</h1>
+                <h1 className='ml-5 mt-3 mb-3'>All Bookings</h1>
 
             <Table striped bordered hover style={{ width: "80%", margin: '0 auto' }}>
                 <thead>

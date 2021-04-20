@@ -7,10 +7,10 @@ import PaymentSplitCard from './PaymentSplitForm';
 
 const stripePromise = loadStripe('pk_test_51IhBXpFUbUyb7QjKZ5VdrQboOvyINjKAblIMIbIzpNKcWjDztaOpuYGHUiawzQpebuNlEtDVzKF1BOCw9pecMIzi00vTGboIyl');
 
-const ProcessPayment = ({ handlePayment }) => {
+const ProcessPayment = ({ handlePayment, price }) => {
     return (
         <Elements stripe={stripePromise}>
-            <PaymentSplitCard handlePayment={handlePayment}></PaymentSplitCard>
+            <PaymentSplitCard handlePayment={handlePayment} price={price} ></PaymentSplitCard>
         </Elements>
     );
 };

@@ -26,7 +26,7 @@ const AddService = () => {
         formData.append('file', file);
         formData.append('title', serviceData.title)
 
-        fetch('http://localhost:5000/addService', {
+        fetch('https://aqueous-lake-79514.herokuapp.com/addService', {
             method: 'POST',
             body: formData
 

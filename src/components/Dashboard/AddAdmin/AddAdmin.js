@@ -30,7 +30,7 @@ const AddAdmin = () => {
     const handleSubmit = (e) => {
         // console.log(admin);
         // if (isEmailValid) {
-            fetch('http://localhost:5000/addAdmin', {
+        fetch('https://aqueous-lake-79514.herokuapp.com/addAdmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(admin)
@@ -59,6 +59,7 @@ const AddAdmin = () => {
             </div>
             <div className="col-md-10 ">
                 <div className='form-container'>
+                    <h1 className='mb-5'>Add an Admin</h1>
                     <Form onSubmit={handleSubmit} className='mb-2' inline>
                         <InputGroup className="mb-2 mr-sm-2">
                             <InputGroup.Prepend>

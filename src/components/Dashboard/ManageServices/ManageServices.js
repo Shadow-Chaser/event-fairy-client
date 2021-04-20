@@ -9,7 +9,7 @@ const ManageServices = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/services')
+        fetch('https://aqueous-lake-79514.herokuapp.com/services')
             .then(res => res.json())
             .then(data => {
                 setServicesData(data);
@@ -19,7 +19,7 @@ const ManageServices = () => {
 
     const handleDelete = (id) => {
         console.log(id);
-        fetch(`http://localhost:5000/deleteService/${id}`, {
+        fetch(`https://aqueous-lake-79514.herokuapp.com/deleteService/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -38,7 +38,7 @@ const ManageServices = () => {
                 <Sidebar></Sidebar>
             </div>
             <div className='col-md-10'>
-            <h2 className="text-center">Manage Services</h2>
+                <h2 className="ml-5 mt-3 mb-3">Manage Services</h2>
 
             <Table striped bordered hover style={{ width: "80%", margin: '0 auto' }}>
                 <thead>

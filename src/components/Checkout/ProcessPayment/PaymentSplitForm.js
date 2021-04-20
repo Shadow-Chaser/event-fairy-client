@@ -35,7 +35,7 @@ const useOptions = () => {
     return options;
 };
 
-const PaymentSplitCard = ({ handlePayment }) => {
+const PaymentSplitCard = ({ handlePayment, price }) => {
     const stripe = useStripe();
     const elements = useElements();
     const options = useOptions();
@@ -135,6 +135,7 @@ const PaymentSplitCard = ({ handlePayment }) => {
                 </label>
                 <br />
                 <Button className='payment-form-btn' variant='info' type="submit" disabled={!stripe}>Pay</Button>
+                <p>Your Service Charge will be ${price}</p>
             </form>
             {
                 paymentError && <p style={{ color: 'red' }}>{paymentError}</p>

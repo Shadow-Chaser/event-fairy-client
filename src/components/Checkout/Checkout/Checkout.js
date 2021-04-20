@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { UserContext } from '../../../App';
 import ProcessPayment from '../ProcessPayment/ProcessPayment';
+import Navigation from '../../Home/Navigation/Navigation';
 
 const Checkout = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -16,7 +17,7 @@ const Checkout = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/service/${serviceId}`)
+        fetch(`https://aqueous-lake-79514.herokuapp.com/service/${serviceId}`)
             .then(res => res.json())
             .then(data => setService(data))
     }, [serviceId]);
@@ -44,7 +45,7 @@ const Checkout = () => {
         setBookingData(newBookingData);
         setIsBookingConfirm(true)
 
-        // fetch('http://localhost:5000/addBooking', {
+        // fetch('https://aqueous-lake-79514.herokuapp.com/addBooking', {
         //     method: 'POST',
         //     headers: {
         //         'Content-Type': 'application/json'
@@ -60,7 +61,7 @@ const Checkout = () => {
     }
     const handleBooking = () => {
         console.log(bookingData);
-        fetch('http://localhost:5000/addBooking', {
+        fetch('https://aqueous-lake-79514.herokuapp.com/addBooking', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -77,7 +78,10 @@ const Checkout = () => {
     // style={{ display: bookingData ? 'none' : 'block' }}
     // style={{ display: bookingData ? 'block' : 'none' }}
     return (
+        <>
+            <Navigation></Navigation>
         <div className="d-flex justify-content-center">
+
             <div >
                 {!bookingData && <div>
                     <h3>Service: {title}</h3>
@@ -87,7 +91,7 @@ const Checkout = () => {
                 </div>
                 }
                 {bookingData && <div>
-                    <ProcessPayment handlePayment={handlePayment} ></ProcessPayment>
+                        <ProcessPayment handlePayment={handlePayment} price={price} ></ProcessPayment>
                 </div>
                 }
             </div>
@@ -95,6 +99,7 @@ const Checkout = () => {
                 bookingData && <Button onClick={handleBooking} disabled={isBookingConfirm === false}> Confirm Booking </Button>
             }
         </div>
+        </>
     );
 };
 
