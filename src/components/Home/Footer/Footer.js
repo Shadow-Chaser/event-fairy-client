@@ -9,13 +9,12 @@ const Footer = () => {
     return (
         <div className='footer-container mt-5 pt-3 ps-5'>
             <div className="d-flex justify-content-around ">
+                <Link className='quick-link' to='/home'>Home</Link>
+                <Link className='quick-link' to='/dashboard'>Dashboard</Link>
                 <Link className='quick-link' to='/services'>Services</Link>
-                <Link className='quick-link' to='/services'>Services</Link>
-                <Link className='quick-link' to='/services'>Services</Link>
-                <Link className='quick-link' to='/services'>Services</Link>
-                <Link className='quick-link' to='/services'>Services</Link>
-                <Link className='quick-link' to='/services'>Services</Link>
-                <Link className='quick-link' to='/services'>Services</Link>
+                <Link className='quick-link' to='/Reviews'>Testimonials</Link>
+                <Link className='quick-link' to='/login'>Login</Link>
+
             </div>
             <div className="social-icons text-center m-4">
                 <FontAwesomeIcon className='text-white icon' icon={faFacebook} />
@@ -30,7 +29,7 @@ const Footer = () => {
             </div>
             <address className='text-white text-center'>
                 Office:
-                Level-4, 34, Awal Centre, Banani, Dhaka
+                Level-4, 34, New YOrk, USA
             </address>
             <p className="text-center text-white mt-2 ">Copyright © {new Date().getFullYear()} Event Fairy</p>
         </div>
