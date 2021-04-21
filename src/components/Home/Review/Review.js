@@ -6,7 +6,7 @@ const Review = (props) => {
     return (
         <div class="review">
             <div class="review-body">
-                <p className='review-text'> <sup>❝</sup> {review} <sup>❞</sup></p>
+                <p className='review-text'> <sup>❝</sup> {review} <sup>❞</sup></p> <br />
 
             </div>
             <div class="review-footer">

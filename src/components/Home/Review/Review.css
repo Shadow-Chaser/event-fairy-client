@@ -10,8 +10,9 @@
 }
 
 .review-body {
-	padding: 20px 30px 60px;
+	padding: 20px 30px 60px 20px;
     /* height: 250px; */
+
 }
 
 .review-text {

@@ -24,7 +24,7 @@ const ServiceCard = (props) => {
                     {description}
                 </Card.Text> */}
                 {/* <h6>Only in ${price}</h6> */}
-                <Button className='card-booking-btn' variant="primary" onClick={() => handleBooking(_id)} >Get Booking</Button>
+                <Button className='card-booking-btn' variant="primary" onClick={() => handleBooking(_id)} >Get Details</Button>
             </Card.Body>
         </Card>
     );

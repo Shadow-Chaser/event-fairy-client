@@ -23,7 +23,7 @@ const ManageBookings = () => {
             <div className="col-md-2">
                 <Sidebar></Sidebar>
             </div>
-            <div className="col-md-10">
+            <div className="col-md-10 mb-3">
                 <h1 className='text-info mt-3 mb-3' style={{ marginLeft: '10px' }}>Manage Bookings</h1>
 
                 <div className="booking-caption row ml-2">

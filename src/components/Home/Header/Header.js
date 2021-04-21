@@ -1,20 +1,16 @@
 import React from 'react';
 import './Header.css'
 import Navigation from '../Navigation/Navigation';
+import HeaderMain from '../HeaderMain/HeaderMain';
 
-{/*  */ }
 
 const Header = () => {
     return (
         <>
             <Navigation></Navigation>
-            <div className='header-container'>
-            <div className="text-container">
-                <h1>Event Fairy</h1>
-                <h4>All Events Should be memorable!</h4>
-            </div>
+            <HeaderMain></HeaderMain>
 
-            </div>
+
         </>
     );
 };
