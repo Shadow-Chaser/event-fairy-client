@@ -45,7 +45,7 @@ const eventsData = [
 const Events = () => {
     return (
         <div>
-            <h2 className="text-center mt-5 mb-5 ">Latest Events We Organized</h2>
+            <h2 className="text-center mt-5 mb-5 ">Latest Events We <span className="text-info">Organized</span></h2>
             <div className="d-flex justify-content-center">
                 <Carousel style={{ width: "80%" }}>
 

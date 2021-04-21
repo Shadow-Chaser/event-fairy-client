@@ -5,7 +5,7 @@ import './ContactUS .css'
 const ContactUs = () => {
     return (
         <div>
-            <h2 className="text-center mt-5">Get in Touch</h2>
+            <h2 className="text-center mt-5">Get in <span className="text-info">Touch</span></h2>
             <div className="form-container">
                 <Form>
                     <Form.Group controlId="formBasicEmail">

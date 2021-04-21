@@ -11,7 +11,7 @@ const Services = () => {
     // console.log(servicesData);
     return (
         <div className=''>
-            <h2 className="text-center mt-5 mb-5">Services We Provide</h2>
+            <h2 className="text-center mt-5 mb-5">Services We <span className="text-info">Provide</span> </h2>
             <div className="row d-flex justify-content-center">
                 {
                     servicesData.map(service => <ServiceCard service={service}></ServiceCard>)
