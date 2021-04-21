@@ -14,7 +14,7 @@ const Sidebar = () => {
 
 
     const [isAdmin, setIsAdmin] = useState(false);
-    console.log(isAdmin);
+    // console.log(isAdmin);
 
     useEffect(() => {
         fetch('https://aqueous-lake-79514.herokuapp.com/isAdmin', {
