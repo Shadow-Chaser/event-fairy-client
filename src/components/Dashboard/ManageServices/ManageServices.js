@@ -38,7 +38,7 @@ const ManageServices = () => {
                 <Sidebar></Sidebar>
             </div>
             <div className='col-md-10'>
-                <h2 className="ml-5 mt-3 mb-3">Manage Services</h2>
+                <h2 className="text-info mt-3 mb-3" style={{ marginLeft: '105px' }}>Manage Services</h2>
 
             <Table striped bordered hover style={{ width: "80%", margin: '0 auto' }}>
                 <thead>

@@ -57,7 +57,7 @@ const AddService = () => {
             <div className="col-md-10">
             <div className='d-flex justify-content-center'>
             <Form className='w-75 mt-5' onSubmit={handleSubmit}>
-                        <h1 className="mb-4">Add a new Service</h1>
+                        <h1 className="mb-4 text-info">Add a new Service</h1>
                 <Form.Group controlId="title">
                     <Form.Label>Title</Form.Label>
                     <Form.Control onBlur={handleBlur} type="text" name='title' placeholder="Enter title" />

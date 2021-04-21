@@ -2,13 +2,16 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faList, faSignOutAlt, faCommentDots, faPlus, faUserPlus, faShoppingCart, faMoneyCheckAlt, faGripHorizontal, faHome, faCalendar, faUsers, faFileAlt, faCog, faCartArrowDown, faUserShield, faListAlt, faPlusCircle, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
+import { faSignOutAlt, faCommentDots, faUserPlus, faHome, faCog, faCartArrowDown, faListAlt, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../../App';
-
+import firebaseConfig from '../../Login/Login/firebase.config';
+import firebase from "firebase/app";
+import "firebase/auth"
 
 const Sidebar = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
 
     const [isAdmin, setIsAdmin] = useState(false);
     console.log(isAdmin);
@@ -22,6 +25,39 @@ const Sidebar = () => {
             .then(res => res.json())
             .then(data => setIsAdmin(data));
     }, [])
+
+    // const [user, setUser] = useState({
+    //     isSignedIn: false,
+    //     name: '',
+    //     email: '',
+    //     phone: ''
+    // });
+
+    // // google sign-out;
+    const handleSignOut = () => {
+
+        if (firebase.apps.length === 0) {
+            firebase.initializeApp(firebaseConfig);
+        }
+
+        firebase.auth().signOut()
+            .then(res => {
+                // const signOutUser = {
+                //     isSignedIn: false,
+                //     name: '',
+                //     email: '',
+                //     photo: ''
+                // }
+                // setUser(signOutUser);
+                setLoggedInUser({});
+                // console.log(res);
+            })
+
+            .catch(err => {
+                console.log(err);
+                console.log(err.message);
+            })
+    }
 
 
     return (
@@ -37,7 +73,7 @@ const Sidebar = () => {
                 <div style={{ display: isAdmin ? 'block' : 'none' }}>
                     <li>
                         <Link to="/manageBookings" className="text-white">
-                            <FontAwesomeIcon icon={faCartArrowDown} /> <span>All Bookings</span>
+                            <FontAwesomeIcon icon={faCartArrowDown} /> <span>Manage Bookings</span>
                         </Link>
                     </li>
                     <li>
@@ -70,7 +106,7 @@ const Sidebar = () => {
                     </li>
                 </div>
 
-                <Link to="" className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
+                <Link to="/" onClick={handleSignOut} className="text-white"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
             </ul>
 
         </div>

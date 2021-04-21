@@ -61,7 +61,7 @@ const ManageBookings = () => {
                     // const newUpdate = { ...update };
                     // newUpdate.bookingId = "";
                     // setUpdate(newUpdate);
-
+                    alert('Status updated to the Database')
                     const updatedBooking = bookingsData.find(booking => booking._id === update.bookingId);
                     updatedBooking.status = update.status;
                     const temp = bookingsData.filter(booking => booking._id !== update.bookingId);
@@ -79,7 +79,7 @@ const ManageBookings = () => {
                 <Sidebar></Sidebar>
             </div>
             <div className="col-md-10">
-                <h1 className='ml-5 mt-3 mb-3'>All Bookings</h1>
+                <h1 className='text-info mt-3 mb-3' style={{ marginLeft: '105px' }}>Manage Bookings</h1>
 
             <Table striped bordered hover style={{ width: "80%", margin: '0 auto' }}>
                 <thead>

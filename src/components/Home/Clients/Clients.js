@@ -9,7 +9,7 @@ const clientsData = [redbull, kaspersky, world, endeavor];
 const Clients = () => {
     return (
         <div>
-            <h2 className="text-center mt-5 mb-5">Our Clients</h2>
+            <h2 className="text-center mt-5 mb-5">Our Happy <span className='text-info'>Clients</span> </h2>
 
             <div className="row d-flex justify-content-center">
                 {

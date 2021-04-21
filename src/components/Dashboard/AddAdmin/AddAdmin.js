@@ -59,7 +59,7 @@ const AddAdmin = () => {
             </div>
             <div className="col-md-10 ">
                 <div className='form-container'>
-                    <h1 className='mb-5'>Add an Admin</h1>
+                    <h1 className='mb-5 text-info'>Add an Admin</h1>
                     <Form onSubmit={handleSubmit} className='mb-2' inline>
                         <InputGroup className="mb-2 mr-sm-2">
                             <InputGroup.Prepend>
