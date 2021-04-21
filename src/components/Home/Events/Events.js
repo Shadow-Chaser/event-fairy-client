@@ -4,7 +4,9 @@ import event from '../../../images/event.png'
 import event2 from '../../../images/event2.jpg'
 import event3 from '../../../images/event3.jpg'
 import EventCard from '../EventCard/EventCard';
-import userEvent from '@testing-library/user-event';
+import bookFestival from '../../../images/bookFestival.png'
+import conference from '../../../images/conference.png'
+
 import './Events.css'
 const eventsData = [
     {
@@ -24,6 +26,18 @@ const eventsData = [
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ullam, similique maiores veniam pariatur tempore.',
         img: event3,
         date: '01 April 2011'
+    },
+    {
+        title: 'Los Angeles Times Festival of Books',
+        description: 'Los Angeles Times Festival of Books gathers writers, poets, artists, filmmakers, musicians and emerging storytellers. Its features 85,000 book titles, thousands of gift items, an international newsstand, and a coffee shop.',
+        img: bookFestival,
+        date: '17 April 2021'
+    },
+    {
+        title: 'Washington International Strategic Leadership Conference',
+        description: 'GoldenCRI, the center for research and innovation, is located in the United States of America (USA).',
+        img: conference,
+        date: '16 June 2020'
     }
 
 ]

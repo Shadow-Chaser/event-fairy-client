@@ -5,7 +5,7 @@ import './ContactUS .css'
 const ContactUs = () => {
     return (
         <div>
-            <h2 className="text-center mt-5 mb-5">Get in Touch</h2>
+            <h2 className="text-center mt-5">Get in Touch</h2>
             <div className="form-container">
                 <Form>
                     <Form.Group controlId="formBasicEmail">
@@ -26,7 +26,7 @@ const ContactUs = () => {
                         <Form.Control as="textarea" type="text" placeholder="Enter your message" />
                     </Form.Group>
                     <div className="d-flex justify-content-center">
-                        <Button className='' variant="primary" type="submit">Submit</Button>
+                        <Button className='' variant="info" type="submit">Submit</Button>
                     </div>
 
                 </Form>
